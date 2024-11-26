@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="css/comon.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/kb.js"></script>
+    <style>
+        .map {
+            position: relative;
+            display: inline-block;
+        }
+        .button-container {
+            position: absolute;
+            top: 10px; /* Adjust as needed */
+            right: 10px; /* Adjust as needed */
+            z-index: 10; /* Ensure the button is above the image */
+        }
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<script>
+    $(window).load(function () {
+        $(".loading").fadeOut()
+    })
+    /****/
+    $(document).ready(function () {
+        var whei = $(window).width()
+        $("html").css({ fontSize: whei / 20 })
+        $(window).resize(function () {
+            var whei = $(window).width()
+            $("html").css({ fontSize: whei / 20 })
+        });
+    });
+</script>
+
+<body>
+    <div class="loading">
+        <div class="loadbox"> <img src="images/loading.gif" alt="Loading..."> 页面加载中... </div>
+    </div>
+    <div class="head">
+        <h1>天津东港智能园区物流管理平台</h1>
+    </div>
+    <div class="mainbox">
+        <ul class="clearfix">
+            <li>
+                <div class="boxall" style="height: 3.2rem">
+                    <div class="alltitle">仓库整体使用情况</div>
+                    <div class="allnav" id="echarts_useArea"></div>
+                    <div class="boxfoot"></div>
+                </div>
+                <div class="boxall" style="height: 3.2rem">
+                    <div class="alltitle">租赁客户仓库使用统计情况</div>
+                    <div class="allnav" id="echart_rent"></div>
+                    <div class="boxfoot"></div>
+                </div>
+                <div class="boxall" style="height: 3.2rem">
+                    <div class="alltitle">当月园区流量统计情况</div>
+                    <div class="allnav" id="echart_access"></div>
+                    <div class="boxfoot"></div>
+                </div>
+            </li>
+            <li>
+                <div class="boxall" style="height: 1.8rem">
+                    </br>
+                    <div class="bar">
+                        <div class="barbox">
+                            <ul class="clearfix" id="rent_or_self">
+                                <li class="pulll_left counter" id="rent"></li>
+                                <li class="pulll_left counter" id="self"></li>
+                            </ul>
+                        </div>
+                        <div class="barbox2">
+                            <ul class="clearfix">
+                                <li class="pulll_left">租赁客户数 </li>
+                                <li class="pulll_left">自营客户数 </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="boxfoot"></div>
+                </div>
+                <div class="boxall" style="height: 6.0rem">
+                    </br>
+                    <div class="map">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <img src="images/dg.jpg" alt="Loading..." width="100%" height="100%">
+                                <div class="button-container">
+                                    <button onclick="window.location.href='map.html';">预览3D仓库</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxfoot"></div>
+                </div>
+                <div class="boxall" style="height: 1.8rem">
+                    </br></br>
+                    <div class="bar">
+                        <div class="barbox">
+                            <ul class="clearfix" id="date_ul">
+                                <li class="pulll_left counter" id="showData"></li>
+                                <li class="pulll_left counter" id="showTime"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="boxfoot"></div>
+                </div>
+            </li>
+            <li>
+                <div class="boxall" style="height:3.4rem">
+                    <div class="alltitle">客户统计情况</div>
+                    <div class="allnav" id="echart_customer"></div>
+                    <div class="boxfoot"></div>
+                </div>
+                <div class="boxall" style="height: 3.2rem">
+                    <div class="alltitle">自营客户仓库使用统计情况</div>
+                    <div class="allnav" id="echart_self"></div>
+                    <div class="boxfoot"></div>
+                </div>
+                <div class="boxall" style="height: 3rem">
+                    <div class="alltitle">各仓库使用情况统计</div>
+                    <div class="allnav" id="echart_storage"></div>
+                    <div class="boxfoot"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
